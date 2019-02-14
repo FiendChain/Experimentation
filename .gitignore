@@ -1,0 +1,15 @@
+# python
+__pycache__
+*.pyc
+*.pyo
+
+# c
+*.o
+*.exe
+*.a
+
+# sfml projects
+SFML/
+
+# java
+*.class
