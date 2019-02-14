@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "string.h": "c",
+        "time.h": "c",
+        "stdio.h": "c",
+        "error.h": "c",
+        "stdlib.h": "c",
+        "readinfo.h": "c",
+        "unistd.h": "c",
+        "termios.h": "c",
+        "timing.h": "c"
+    }
+}

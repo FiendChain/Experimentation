@@ -1,0 +1,66 @@
+/* Restrict dimensions of window */
+body {
+    min-width: 900px;
+}
+
+/* Progress Bar */
+div.countdown {
+    height: 30px;
+    margin: 5px;
+    width: 98%;
+}
+
+div.countdown button {
+    background-color: white;
+    float: left;
+    height: 100%;
+    margin-right: 5px;
+    text-align: center;
+    width: 10%;
+}
+
+div.countdown .progressBar {
+    background-color: whitesmoke;
+    box-shadow: inset 0 0 0 3px #6cc091;
+    float: left;
+    height: 100%;
+    width: 89%;
+}
+
+div.countdown .progressBar div {
+    background: repeating-linear-gradient(
+        45deg,
+        #6cc091 10px,
+        green 20px
+    );
+    color: white;
+    cursor: progress;
+    font-weight: bold;
+    height: 100%;
+    max-width: 100%;
+    text-align: center;
+    width: 0%;
+}
+
+/* Workout table */
+table.workoutTable {
+    margin: 5px;
+    width: 100%;
+}
+
+table.workoutTable thead {
+    margin: inherit;
+}
+
+table.workoutTable tbody {
+    margin: inherit;
+}
+
+div.timerWrapper {
+    text-align: center;
+    width: 100%;
+}
+
+button.timer {
+    width: 20%;
+}

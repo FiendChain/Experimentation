@@ -1,0 +1,11 @@
+[CONFIG]
+rest=40
+debug=1
+
+[ROUTINE]
+Dumbell Pushup
+Pectorial Lift
+Biceps
+Situps
+Plank
+Leg lift

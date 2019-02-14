@@ -13,3 +13,6 @@ SFML/
 
 # java
 *.class
+
+# accident sub repo
+.git/

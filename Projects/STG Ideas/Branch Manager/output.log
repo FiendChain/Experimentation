@@ -1,0 +1,87 @@
+>>> Describing <__main__.BranchManager instance at 0x7fe0e6d0e0e0>
+start = '{'
+	{
+		current: 0,
+		labels: ['start1', 'start2', 'start3', 'start4', 'finish'],
+	},
+},
+death = '{'
+	{
+		current: 0,
+		labels: ['death1', 'death2', 'death3'],
+	},
+},
+serena = '{'
+	{
+		current: 0,
+		labels: ['serenaIgnore', 'serenaHi', 'serenaDeath', 'death'],
+	},
+},
+morning = '{'
+	{
+		current: 0,
+		labels: ['moxGreet', 'moxAttack', 'moxKill', 'moxRape', 'moxLive'],
+	},
+},
+
+>>> Cycling through label: start
+Jumped to: start1
+Jumped to: start2
+Jumped to: start3
+Jumped to: start4
+Jumped to: finish
+Jumped to: finish
+Jumped to: finish
+Jumped to: finish
+Jumped to: finish
+Jumped to: finish
+
+>>> Cycling through label: morning
+Jumped to: moxGreet
+Jumped to: moxAttack
+Jumped to: moxKill
+Jumped to: moxRape
+Jumped to: moxLive
+Jumped to: moxLive
+Jumped to: moxLive
+Jumped to: moxLive
+Jumped to: moxLive
+Jumped to: moxLive
+
+>>> Cycling through label: serena
+Jumped to: serenaIgnore
+Jumped to: serenaHi
+Jumped to: serenaDeath
+Jumped to: death1
+Jumped to: death
+Jumped to: death
+Jumped to: death
+Jumped to: death
+Jumped to: death
+Jumped to: death
+
+>>> Cycling through label: death
+Jumped to: death2
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+
+>>> Resetting death branch
+>>> Cycling through label: death
+Jumped to: death1
+Jumped to: death2
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+Jumped to: death3
+

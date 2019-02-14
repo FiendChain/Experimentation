@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workout</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicons/dumbbell.png" />
+  <script src="js/jquery-3.2.1.js"></script>
+  <script src='js/bar.js'></script>
+  <script src='js/table.js'></script>
+  <script src='js/timer.js'></script>
+</head>
+<body onload='createTable("workoutTable", workouts)'>
+  <table id='workoutTable' class='workoutTable'></table>
+  <div style='text-align: center;'>
+    <button class='small timer' onclick='toggleTimer(this)'>
+      Start Timer
+    </button>
+  </div>
+</body>
+</html> 

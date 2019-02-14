@@ -1,0 +1,11 @@
+A quick brown fox jumped over the semi retarded person lying on the train tracks.
+For whatever reason, this person did not react.
+They died, La fin. There is stuff at the end of the line now because I did ctrl-A;
+
+There are many shortcuts which do specific things.
+ctrl-A: Move to end of line, Normal->Insert.
+
+0: Move to beginning of line, Normal.
+
+String x = "Changing something inside of these brackets using ci("
+
