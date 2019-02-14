@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% set title="Scrum" %}
+{% set icon=url_for('static', filename='scrum.ico') %}
+
+{% block navbar %}
+{% include "SCRUM/scrum_navbar.html" with context %}
+{% endblock %}
+{% block body %}
+{% include "SCRUM/forms.html" with context %}
+{% from "SCRUM/scrum_table.html" import scrum_table %}
+
+<h1>{{ scrum.name }}</h1>
+<!-- <table class="table table-hover table-sm scrum-table" url="{{ url_for('scrum.get_scrum', scrum_id=scrum.id) }}"></table> -->
+{{ scrum_table(scrum, categories) }}
+
+<!--Epic entry-->
+<template id="scrum_table_epic">
+<div class="switch">
+    <div class="description">
+        <strong name="name"></strong><br>
+        <span name="description"></span>
+    </div>
+    <div class="buttons">
+        <a>Hi</a>
+    </div>
+</div>
+</template>
+
+<!--Story entry-->
+<template id="scrum_table_story">
+<div class="switch">
+    <div class="description">
+        <strong><a name="name"></a> - <a name="date"></a></strong><br>
+        <span name="description"></span>
+    </div>
+    <div class="buttons">
+        <a>Hi</a>
+    </div>
+</div>
+</template>
+
+{% endblock %}

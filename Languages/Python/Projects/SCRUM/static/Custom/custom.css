@@ -1,0 +1,51 @@
+table.scrum-table {
+    display: none;
+}
+
+form.modal-form {
+    display: none;
+}
+
+div.switch > div.buttons {
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.switch:hover > div.buttons {
+    visibility: visible;
+}
+
+.progress {
+    -webkit-transition: all .2s ease-in-out !important;
+    -moz-transition:    all .2s ease-in-out !important;
+    -o-transition:      all .2s ease-in-out !important;
+    transition:         all .2s ease-in-out !important;
+}
+
+.progress:hover {
+    -webkit-transition: scale(1.1) !important;
+    -moz-transition:    scale(1.1) !important;
+    -o-transition:      scale(1.1) !important;
+    transition:         scale(1.1) !important;
+}
+
+.one-fps-bar {
+    -webkit-transition: width 1s linear !important;
+    -moz-transition:    width 1s linear !important;
+    -o-transition:      width 1s linear !important;
+    transition:         width 1s linear !important;
+}
+
+.timer {
+    display: inline-block;
+    text-align: center;
+    width: 200px;
+}
+
+.timer > .display {
+    display: inline-block;
+    width: 100%;
+}

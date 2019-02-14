@@ -1,0 +1,107 @@
+/* Body styling */
+body, html{
+  color: #666;
+  font-family:'Lato',sans-serif;
+  font-size:16px;
+  font-weight:400;
+  height:100%;
+  line-height:1.8em;
+  margin:0;
+}
+
+/* Heading styling */
+h1, h2, h3{
+  color:#666;
+  font-family:'Lato',sans-serif;
+  text-align:center;
+}
+
+/* Default button styling */
+button{
+  border:none;
+  font-weight:bold;
+  padding:7px 7px;
+  text-align:center;
+}
+
+.pimg1, .pimg2, .pimg3{
+  /*
+    fixed = parallax
+    scroll = normal
+  */
+  background-attachment:fixed;  
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  opacity:0.70;
+  position:relative;
+}
+
+.pimg1{
+  background-image:url('../img/image1.jpg');
+  min-height:100%;
+}
+
+.pimg2{
+  background-image:url('../img/image2.jpg');
+  min-height:400px;
+}
+
+.pimg3{
+  background-image:url('../img/image3.jpg');
+  min-height:400px;
+}
+
+
+/* Section styling */
+.section-light{
+  background-color:#f4f4f4;
+  color:#666;
+  padding:50px 80px;
+  text-align:center;
+}
+
+.section-light button{
+  background-color:#282e34;
+  color:#ddd;
+}
+
+.section-dark{
+  background-color:#282e34;
+  color:#ddd;
+  padding:50px 80px;
+  text-align:center;
+}
+
+.section-dark button{
+  background-color:#f4f4f4;
+  color:#666;
+}
+
+/* Parallax Text */
+.ptext{
+  color:#000;
+  font-size:27px;
+  letter-spacing:8px;
+  position:absolute;
+  text-align:center;
+  text-transform:uppercase;
+  top:50%;
+  width:100%;
+}
+
+.ptext .border{
+  background-color:#111;
+  color:#fff;
+  padding:20px;
+}
+
+.ptext .border.trans{
+  background-color:transparent;
+}
+
+@media(max-width:568px){
+  .pimg1, .pimg2, .pimg3{
+    background-attachment:scroll;
+  }
+}

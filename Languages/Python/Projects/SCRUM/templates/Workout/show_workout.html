@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% set title="Workout" %}
+{% set icon=url_for('static', filename='workout.png') %}
+
+{% block navbar %}
+{% include "Workout/workout_navbar.html" with context %}
+{% endblock %}
+{% block body %}
+{% include "Workout/forms.html" with context %}
+
+<h1>{{ workout.name }}</h1>
+<table class="table workout-table" url="{{ url_for('workout.get_workout', workout_id=workout.id) }}"></table>
+
+<div style='text-align: center;'>
+    <div class="timer" speed="1">
+        <div class="btn btn-outline-primary btn-lg display">
+            <span></span>
+        </div>
+    </div>
+</div>
+
+
+<template id="workout_table_exercise">
+    <div class="switch">
+        <div class="description">
+            <strong name="name"></strong>
+        </div>
+        <div class="buttons">
+            <div class="btn-group" role="group">
+                <button type="button" name="modify_button"\
+                class="btn btn-outline-success btn-sm" data-target="exercise_form"\
+                get-url=""\
+                post-url=""\
+                title="Modify Exercise">Modify</button>
+                <button type="button" name="remove_button"\
+                class="btn btn-danger btn-sm modal-confirm"\
+                url=""\
+                message="Are you sure you want to remove the exercise "\
+                title="Remove Exercise">x</button>
+            </div>
+        </div>
+    </div>
+</template>
+{% endblock %}

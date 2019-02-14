@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Webpage</title>
+    <link href='style.css' type='text/css' rel='stylesheet'>
+    <script type='text/javascript' src='scripts/htmlFocused.js'></script>
+    <script type='text/javascript' src='scripts/objects.js'></script>
+    <script type='text/javascript' src='scripts/moreObjects.js'></script>
+    <script type='text/javascript' src='scripts/arrays.js'></script>
+</head>
+<body>
+    <h1>Heading</h1>
+    <!-- Fibonacci Button -->
+    <section class='section-light'>
+        <input id='fibSlider' type='range' value='0' min='0' max='10' step='1' onchange='updateSlider(this.value)'></input>
+        <button id='fibValue' onclick='fibonacci()'>Fibonacci Sequence</button>
+    </section>
+
+    <!-- Custom Alert -->
+    <section class='section-dark'>
+        <input id='customMessage' type='text'></input>
+        <button onclick='customAlert()'>Custom Alert</button>
+    </section>
+
+    <!-- Entry point for objects.js -->
+    <section class='section-light'>
+        <button onclick='objectsMain()'>Entry point for objects.js</button>
+    </section>
+</body>
+</html>

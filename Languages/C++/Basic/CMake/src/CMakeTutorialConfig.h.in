@@ -1,0 +1,4 @@
+// the configured options and settings for Tutorial
+#define CMake_Tutorial_VERSION_MAJOR @CMake_Tutorial_VERSION_MAJOR@
+#define CMake_Tutorial_VERSION_MINOR @CMake_Tutorial_VERSION_MINOR@
+#cmakedefine USE_MY_VECTOR

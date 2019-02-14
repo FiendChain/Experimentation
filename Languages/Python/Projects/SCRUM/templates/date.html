@@ -1,0 +1,17 @@
+<!--Show the date-->
+{% macro show_date(date, format='%d/%m/%Y') %}
+{% if date %}
+{{ date.strftime(format) }}
+{% else %}
+None
+{% endif %}
+{% endmacro %}
+
+<!--Show the time-->
+{% macro show_time(time, format='%H:%M:%S') %}
+{% if time %}
+{{ time.strftime(format) }}
+{% else %}
+None
+{% endif %}
+{% endmacro %}

@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "assert.h": "c",
+        "graphsearch.h": "c",
+        "graph.h": "c",
+        "cstdlib": "c",
+        "stack.h": "c",
+        "unittest.h": "c",
+        "test_adts.h": "c",
+        "stack.h\u0000stack.h": "c"
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "path": {
+        "dir": "Workout"
+    },
+    "pages": {
+        "show_workouts": {
+            "url": "/",
+            "file": "{dir}/show_workouts.html"
+        },
+        "show_workout": {
+            "url": "/<workout_id>",
+            "file": "{dir}/show_workout.html"
+        },
+        "get_workouts": {
+            "url": "/workouts"
+        },
+        "get_workout": {
+            "url": "/workout/<workout_id>"
+        },
+        "get_exercise": {
+            "url": "/exercise/<exercise_id>"
+        },
+        "add_workout": {
+            "url": "/add_workout"
+        },
+        "add_exercise": {
+            "url": "/workout/<workout_id>/add_exercise"
+        },
+        "modify_workout": {
+            "url": "/workout/<workout_id>"
+        },
+        "modify_exercise": {
+            "url": "/exercise/<exercise_id>"
+        },
+        "remove_workout": {
+            "url": "/workout/<workout_id>"
+        },
+        "remove_exercise": {
+            "url": "/exercise/<exercise_id>"
+        }
+    }
+}

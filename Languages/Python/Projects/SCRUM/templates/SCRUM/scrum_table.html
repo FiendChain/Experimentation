@@ -1,0 +1,98 @@
+{% from "SCRUM/buttons.html" import button_group with context %}
+{% from "SCRUM/buttons.html" import button_move_story_left, button_move_story_right, button_modify_story, button_remove_story %}
+{% from "SCRUM/buttons.html" import button_add_story, button_modify_epic, button_remove_epic %}
+
+{% from "date.html" import show_date with context %}
+
+{% macro scrum_table(scrum, categories) %}
+{% if scrum and categories %}
+{% set id = "scrum_table_{}".format(scrum.id) %}
+<script type="text/javascript" class="init">
+    var categories = {{ categories|tojson|safe }};
+    var width = String(100/(categories.length+1))+'%';
+    var columns = [{
+        'title': 'Epics',
+        'width': width,
+    }];
+    for(var index in categories) {
+        columns.push({
+            'title': categories[index],
+            'width': width,
+        });
+    }
+    $(document).ready(function() {
+        var table = $("#{{ id }}"); 
+        table.show();
+        table.DataTable({
+            'border-collapse': 'collapse',
+            'responsive': true,
+            'autowidth': false,
+            'columns': columns,
+            'rowsGroup': [0],
+        });
+    })
+</script>
+<table id="{{ id }}" class="table table-hover table-sm" style="display:none">
+    <thead>
+        <tr>
+            <th>Epics</th>
+            {% for category in categories %}
+            <th>{{ category }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for epic in scrum.epics %}
+        <!--If there isnt a story-->
+        {% if not epic.stories %}
+        <tr>
+            <td>{{ epic_entry(epic) }}</td>
+            {% for category in categories %}
+            <td></td>
+            {% endfor %}
+        </tr>
+        {% endif %}
+        <!--If there are stories, create each row-->
+        {% for story in epic.stories %}
+        <tr>
+            <td>{{ epic_entry(epic) }}</td>
+            {% for category in categories %}
+            <td>
+            {% if story.category == category %}
+            {{ story_entry(story) }}
+            {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endmacro %}
+
+<!--Epic entry-->
+{% macro epic_entry(epic) %}
+<div class="switch">
+    <div class="description">
+        <strong>{{ epic.name }}</strong><br>
+        <span>{{ epic.description }}</span>
+    </div>
+    <div class="buttons">
+        {{ button_group(epic, buttons=[button_add_story, button_modify_epic, button_remove_epic]) }}
+    </div>
+</div>
+{% endmacro %}
+
+<!--Story entry-->
+{% macro story_entry(story) %}
+<div class="switch">
+    <div class="description">
+        <strong>{{ story.name }} - {{ show_date(story.date) }}</strong><br>
+        <span>{{ story.description }}</span>
+    </div>
+    <div class="buttons">
+        {{ button_group(story, buttons=[button_move_story_left, button_move_story_right, button_modify_story, button_remove_story]) }}
+    </div>
+</div>
+{% endmacro %}

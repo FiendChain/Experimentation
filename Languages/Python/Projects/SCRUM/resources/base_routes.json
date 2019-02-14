@@ -1,0 +1,15 @@
+{
+    "path": {
+        "dir": ""
+    },
+    "pages": {
+        "home": {
+            "url": "/",
+            "file": "home.html"
+        },
+        "index": {
+            "url": "/index",
+            "file": "index.html"
+        }
+    }
+}

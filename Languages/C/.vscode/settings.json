@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "stdio2.h": "c",
+        "getopt.h": "c",
+        "math.h": "c",
+        "stdio.h": "c",
+        "fakeclass.c": "cpp",
+        "classes.h": "c",
+        "stdlib.h": "c",
+        "libio.h": "c"
+    }
+}

@@ -1,0 +1,42 @@
+<!--modal exercise form-->
+<form id="exercise_form" title="Exercise Form" class="form-horizontal modal-form" role="form">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type='text' placeholder='Name' name='name' value="{{ name }}" maxlength="100" required/>
+    </div>
+    <div class="form-group">
+        <label>Reps</label>
+        <input class="form-control" type='number' placeholder='Total reps' name='reps' value="{{ reps }}" required/>
+    </div>
+    <div class="form-group">
+        <label>Sets</label>
+        <input class="form-control" type='number' placeholder='Total sets' name='sets' value="{{ sets }}" required/>
+    </div>
+    <div class="form-group">
+        <label>Rest</label>
+        <div class="input-group input-group-prepend">   
+            <input class="form-control" type='number' placeholder='Rest duration' name='rest' value="{{ rest }}" required/>
+            <span class="input-group-text">seconds</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" type='text' placeholder='Description' name='description' value="{{ description }}" maxlength="100"/>
+    </div>
+    <button class="btn btn-primary" name="confirm" type="submit">Confirm</button>
+</form>
+
+<!--modal workout form-->
+<form id="workout_form" title="Workout Form" class="form-horizontal modal-form" role="form">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type='text' placeholder='Name' name='name' value="{{ name }}" maxlength="100" required/>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" type='text' placeholder='Description' name='description' value="{{ description }}" maxlength="100"/>
+    </div>
+    <button class="btn btn-primary" name="confirm" type="submit">Confirm</button>
+</form>
+        
+            

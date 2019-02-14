@@ -1,0 +1,7 @@
+<!--Navigation bar-->
+{% from "Workout/buttons.html" import button_group with context %}
+{% from "Workout/buttons.html" import button_add_exercise, button_modify_workout with context %}
+{% from "navbar.html" import navbar_button with context %}
+{% if workout %}
+{{ navbar_button(button_group(workout, buttons=[button_modify_workout, button_add_exercise])) }}
+{% endif %}

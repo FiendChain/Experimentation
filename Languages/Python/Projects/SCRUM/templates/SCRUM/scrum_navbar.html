@@ -1,0 +1,7 @@
+<!--Navigation bar-->
+{% from "SCRUM/buttons.html" import button_group with context %}
+{% from "SCRUM/buttons.html" import button_add_epic, button_modify_scrum with context %}
+{% from "navbar.html" import navbar_button with context %}
+{% if scrum %}
+{{ navbar_button(button_group(scrum, buttons=[button_modify_scrum, button_add_epic])) }}
+{% endif %}

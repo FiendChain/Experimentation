@@ -1,0 +1,61 @@
+{
+    "path": {
+        "dir": "/SCRUM",
+        "forms": "forms"
+    },
+    "pages": {
+        "add_scrum": {
+            "url": "/add_scrum"
+        },
+        "add_epic": {
+            "url": "/scrum/<scrum_id>/add_epic"
+        },
+        "add_story": {
+            "url": "/epic/<epic_id>/add_story"
+        },
+        "modify_scrum": {
+            "url": "/scrum/<scrum_id>"
+        },
+        "modify_epic": {
+            "url": "/epic/<epic_id>"
+        },
+        "modify_story": {
+            "url": "/story/<story_id>"
+        },
+        "remove_scrum": {
+            "url": "/scrum/<scrum_id>"
+        },
+        "remove_epic": {
+            "url": "/epic/<epic_id>"
+        },
+        "remove_story": {
+            "url": "/story/<story_id>"
+        },
+        "get_scrums": {
+            "url": "/scrums"
+        },
+        "get_scrum": {
+            "url": "/scrum/<scrum_id>"
+        },
+        "get_epic": {
+            "url": "/epic/<epic_id>"
+        },
+        "get_story": {
+            "url": "/story/<story_id>"
+        },
+        "move_story_left": {
+            "url": "/story/<story_id>/move_left"
+        },
+        "move_story_right": {
+            "url": "/story/<story_id>/move_right"
+        },
+        "show_scrum": {
+            "url": "/<scrum_id>",
+            "file": "{dir}/show_scrum.html"
+        },
+        "show_scrums": {
+            "url": "/",
+            "file": "{dir}/show_scrums.html"
+        }
+    }
+}

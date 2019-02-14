@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% set title="Scrum" %}
+{% set icon=url_for('static', filename='scrum.ico') %}
+
+{% block navbar %}
+{% from "SCRUM/buttons.html" import button_add_scrum with context %}
+{{ button_add_scrum() }}
+{% endblock %}
+
+{% block body %}
+{% include "SCRUM/forms.html" with context %}
+<h1>SCRUMS</h1>
+{% if scrums %}
+<div class="card-deck">
+{% for scrum in scrums %}
+{{ scrum_card(scrum) }}
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% macro scrum_card(scrum) %}
+{% from "SCRUM/buttons.html" import button_show_scrum, button_modify_scrum, button_remove_scrum with context %}
+<div class="card border-dark mb-3 clickable_card" style="max-width: 18rem;">
+    <div class="card-header">
+        <h5>{{ scrum.name }}</h5>
+    </div>
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">Description</h6>
+        <p class="card-text">{{ scrum.description }}</p>
+        {{ button_show_scrum(scrum) }}
+        {{ button_modify_scrum(scrum) }}
+        {{ button_remove_scrum(scrum) }}
+    </div>
+</div>
+{% endmacro %}

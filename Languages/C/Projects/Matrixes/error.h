@@ -1,0 +1,1 @@
+void printError(char *operation, char *type, int terminate);

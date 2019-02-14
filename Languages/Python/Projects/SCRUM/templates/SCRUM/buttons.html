@@ -1,0 +1,122 @@
+{% macro button_group(object, buttons=[]) %}
+{% if buttons %}
+<div class="btn-group" role="group">
+    {% for button in buttons %}
+    {{ button(object) }}
+    {% endfor %}
+</div>
+{% endif %}
+{% endmacro %}
+
+<!--Show scrum table for a scrum item-->
+{% macro button_show_scrum(scrum) %}
+<a href="{{ url_for('scrum.show_scrum', scrum_id=scrum.id) }}" class="btn btn-primary">Explore</a>
+{% endmacro %}
+
+<!--
+    Buttons to add items
+-->
+<!--Add a scrum-->
+{% macro button_add_scrum() %}
+<button type="button" class="btn btn-primary" data-target="scrum_form"\
+        post-url="{{ url_for('scrum.add_scrum') }}"\
+        title="Add Scrum">Add scrum</button>
+{% endmacro %}
+
+<!--Add epic-->
+{% macro button_add_epic(scrum) %}
+<button type="button" class="btn btn-success" data-target="epic_form"\
+        post-url="{{ url_for('scrum.add_epic', scrum_id=scrum.id) }}"\
+        title="Add Epic">Add epic</button>
+{% endmacro %}
+
+<!--Add a story-->
+{% macro button_add_story(epic) %}
+<button type="button" class="btn btn-primary btn-sm" data-target="story_form"\
+        post-url="{{ url_for('scrum.add_story', epic_id=epic.id) }}"\
+        title="Add Story">Add story</button>
+{% endmacro %}
+
+<!--
+    Modify items in the system
+-->
+<!--Modify scrum-->
+{% macro button_modify_scrum(scrum) %}
+<button type="button" class="btn btn-primary" data-target="scrum_form"\
+        get-url="{{ url_for('scrum.get_scrum', scrum_id=scrum.id) }}"\
+        post-url="{{ url_for('scrum.modify_scrum', scrum_id=scrum.id) }}"\
+        title="Modify Scrum">Modify</button>
+{% endmacro %}
+
+<!--Modify epic-->
+{% macro button_modify_epic(epic) %}
+<button type="button" class="btn btn-outline-success btn-sm" data-target="epic_form"\
+        get-url="{{ url_for('scrum.get_epic', epic_id=epic.id) }}"\
+        post-url="{{ url_for('scrum.modify_epic', epic_id=epic.id) }}"\
+        title="Modify Epic">🖉</button>
+{% endmacro %}
+
+
+
+<!--Modify story-->
+{% macro button_modify_story(story) %}
+<button type="button" class="btn btn-outline-success btn-sm" data-target="story_form"\
+        get-url="{{ url_for('scrum.get_story', story_id=story.id) }}"\
+        post-url="{{ url_for('scrum.modify_story', story_id=story.id) }}"\
+        title="Modify Story">🖉</button>
+{% endmacro %}
+
+<!--
+    Remove items from the system
+-->
+<!--Remove scrum-->
+{% macro button_remove_scrum(scrum) %}
+<button type="button" class="btn btn-danger modal-confirm"\
+        url="{{ url_for('scrum.remove_scrum', scrum_id=scrum.id) }}"\
+        message="Are you sure you want to remove the scrum '{{ scrum.name }}'"\
+        title="Remove Scrum">Remove</button>
+{% endmacro %}
+
+<!--Remove epic-->
+{% macro button_remove_epic(epic) %}
+<button type="button" class="btn btn-danger btn-sm modal-confirm"\
+        url="{{ url_for('scrum.remove_epic', epic_id=epic.id) }}"\
+        message="Are you sure you want to remove the epic '{{ epic.name }}'"\
+        title="Remove Epic">x</button>
+{% endmacro %}
+
+<!--Remove story-->
+{% macro button_remove_story(story) %}
+<button type="button" class="btn btn-danger btn-sm modal-confirm"\
+        url="{{ url_for('scrum.remove_story', story_id=story.id) }}"\
+        message="Are you sure you want to remove the story '{{ story.name }}'"\
+        title="Remove Story">x</button>
+{% endmacro %}
+
+<!--
+    Move a story left and right
+-->
+{% macro button_move_story_left(story) %}
+{% if story and story.can_move_category_left() %}
+{% set url = url_for('scrum.move_story_left', story_id=story.id) %}
+<form method='POST' class="btn-group" action="{{ url }}">
+    <button class="btn btn-outline-primary btn-sm" type='submit'><</button>
+</form>
+{% endif %}
+{% endmacro %}
+
+{% macro button_move_story_right(story) %}
+{% if story and story.can_move_category_right() %}
+{% set url = url_for('scrum.move_story_right', story_id=story.id) %}
+<form method='POST' class="btn-group" action="{{ url }}">
+    <button class="btn btn-outline-primary btn-sm" type='submit'>></button>
+</form>
+{% endif %}
+{% endmacro %}
+
+
+
+
+
+
+    

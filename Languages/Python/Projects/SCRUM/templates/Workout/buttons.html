@@ -1,0 +1,76 @@
+{% macro button_group(object, buttons=[]) %}
+{% if buttons %}
+<div class="btn-group" role="group">
+    {% for button in buttons %}
+    {{ button(object) }}
+    {% endfor %}
+</div>
+{% endif %}
+{% endmacro %}
+
+<!--Show workout table for a workout item-->
+{% macro button_show_workout(workout) %}
+<a href="{{ url_for('workout.show_workout', workout_id=workout.id) }}" class="btn btn-primary">Explore</a>
+{% endmacro %}
+
+<!--
+    Buttons to add items
+-->
+<!--Add a workout-->
+{% macro button_add_workout() %}
+<button type="button" class="btn btn-primary" data-target="workout_form"\
+        post-url="{{ url_for('workout.add_workout') }}"\
+        title="Add Workout">Add workout</button>
+{% endmacro %}
+
+<!--Add exercise-->
+{% macro button_add_exercise(workout) %}
+<button type="button" class="btn btn-success" data-target="exercise_form"\
+        post-url="{{ url_for('workout.add_exercise', workout_id=workout.id) }}"\
+        title="Add Exercises">Add exercise</button>
+{% endmacro %}
+
+<!--
+    Modify items in the system
+-->
+<!--Modify exercise-->
+{% macro button_modify_exercise(exercise) %}
+<button type="button" class="btn btn-primary" data-target="exercise_form"\
+        get-url="{{ url_for('workout.get_exercise', exercise_id=exercise.id) }}"\
+        post-url="{{ url_for('workout.modify_exercise', exercise_id=exercise.id) }}"\
+        title="Modify Exercise">Modify</button>
+{% endmacro %}
+
+<!--Modify workout-->
+{% macro button_modify_workout(workout) %}
+<button type="button" class="btn btn-primary" data-target="workout_form"\
+        get-url="{{ url_for('workout.get_workout', workout_id=workout.id) }}"\
+        post-url="{{ url_for('workout.modify_workout', workout_id=workout.id) }}"\
+        title="Modify Workout">Modify</button>
+{% endmacro %}
+
+<!--
+    Remove items from the system
+-->
+<!--Remove workout-->
+{% macro button_remove_workout(workout) %}
+<button type="button" class="btn btn-danger modal-confirm"\
+        url="{{ url_for('workout.remove_workout', workout_id=workout.id) }}"\
+        message="Are you sure you want to remove the workout '{{ workout.name }}'"\
+        title="Remove Workout">Remove</button>
+{% endmacro %}
+
+<!--Remove exercise-->
+{% macro button_remove_exercise(exercise) %}
+<button type="button" class="btn btn-danger btn-sm modal-confirm"\
+        url="{{ url_for('workout.remove_exercise', exercise_id=exercise.id) }}"\
+        message="Are you sure you want to remove the exercise '{{ exercise.name }}'"\
+        title="Remove Exercise">x</button>
+{% endmacro %}
+
+
+
+
+
+
+    

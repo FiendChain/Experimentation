@@ -1,0 +1,42 @@
+<!--Scrum form-->
+<form id="scrum_form" class="form-horizontal modal-form" title="Scrum Form" role="form">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type='text' placeholder='Name' name='name' value="{{ name }}" maxlength="100" required/>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" type='text' placeholder='Description' name='description' value="{{ description }}" maxlength="100"/>
+    </div>
+    <button class="btn btn-primary" name="confirm" type="submit">Confirm</button>
+</form>
+
+<!--Epic form-->
+<form id="epic_form" class="form-horizontal modal-form" title="Epic Form" role="form">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type='text' placeholder='Name' name='name' value="{{ name }}" maxlength="100" required/>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" type='text' placeholder='Description' name='description' value="{{ description }}" maxlength="100"/>
+    </div>
+    <button class="btn btn-primary" name="confirm" type="submit">Confirm</button>
+</form>
+
+<!--Story form-->
+<form id="story_form" class="form-horizontal modal-form" title="Story Form" role="form">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" type='text' placeholder='Name' name='name' value="{{ name }}" maxlength="100" required/>
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" type='text' placeholder='Description' name='description' value="{{ description }}" maxlength="100"/>
+    </div>
+    <div class="form-group">
+        <label>Date</label>
+        <input class="form-control" type='date' name='date' min="1900-01-01" max="2100-01-01" value="{{ date }}"/>
+    </div>
+    <button class="btn btn-primary" name="confirm" type="submit">Confirm</button>
+</form>

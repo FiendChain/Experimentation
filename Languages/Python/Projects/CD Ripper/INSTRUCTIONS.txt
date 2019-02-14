@@ -1,0 +1,5 @@
+Go into the linux subsystem by doing: bash
+
+Then follow the instructions for the ripping program by doing: python3 rip_dvd.py -h
+
+Example of usage in linux: python3 rip_dvd.py E:

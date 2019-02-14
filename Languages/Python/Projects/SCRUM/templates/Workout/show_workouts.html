@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% set title="Workout" %}
+{% set icon=url_for('static', filename='workout.png') %}
+
+{% block navbar %}
+{% from "Workout/buttons.html" import button_add_workout with context %}
+{{ button_add_workout() }}
+{% endblock %}
+
+{% block body %}
+{% include "Workout/forms.html" with context %}
+<h1>Workouts</h1>
+{% if workouts %}
+<div class="card-deck">
+{% for workout in workouts %}
+{{ workout_card(workout) }}
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% macro workout_card(workout) %}
+{% from "Workout/buttons.html" import button_show_workout, button_modify_workout, button_remove_workout with context %}
+<div class="card border-dark mb-3 clickable_card" style="max-width: 18rem;">
+    <div class="card-header">
+        <h5>{{ workout.name }}</h5>
+    </div>
+    <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">Description</h6>
+        <p class="card-text">{{ workout.description }}</p>
+        {{ button_show_workout(workout) }}
+        {{ button_modify_workout(workout) }}
+        {{ button_remove_workout(workout) }}
+    </div>
+</div>
+{% endmacro %}

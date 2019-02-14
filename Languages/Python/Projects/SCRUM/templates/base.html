@@ -1,0 +1,73 @@
+<!--
+The navigation bar used to traverse the webpage
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ icon }}">
+    <!--Styles-->
+    <link href="{{ url_for('static', filename='datatables.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url_for('static', filename='Custom/custom.css') }}" rel="stylesheet" type="text/css"/>
+    <!--JS Glue script-->
+    {{ JSGlue.include() }}
+    <!--Base scripts-->
+    <script src="{{ url_for('static', filename='jQuery-3.2.1/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='datatables.min.js') }}" type="text/javascript" ></script>
+    <script src="{{ url_for('static', filename='dataTables.rowsGroup.js') }}" type="text/javascript" ></script>
+    <!--Custom scripts-->
+    <script src="{{ url_for('static', filename='Custom/flash_messages.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='Custom/refresh.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='Custom/scrum_table.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='Custom/workout_table.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='Custom/init.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='Custom/modal_confirm.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='Custom/modal_form.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='Custom/progress_bar.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='Custom/timer.js') }}" type="text/javascript"></script>
+    <!--CDN Sources-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.0.0/jq-3.2.1/dt-1.10.16/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.0.0/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>
+    <script src="//cdn.rawgit.com/ashl1/datatables-rowsgroup/v1.0.0/dataTables.rowsGroup.js"></script>
+</head>
+<body>
+<!--
+    New modal confirm to replace confirm(string:String) method
+    Shows a modal bootstrap dialog box
+    Called via modal_confirm(string:String)
+-->
+{% include "modal_form.html" %} 
+{% include "modal_confirm.html" %}
+{% include "flash_messages.html" %}
+<!--Navbar-->
+<nav class="bg-dark">
+    <div class="navbar navbar-expand-sm navbar-dark container-fluid" style="max-width:1200px">
+        <a id="home_button" class="navbar-brand" href="{{ url_for('base.home') }}">Home</a>
+        <ul class="navbar-nav">
+            <li><a class="nav-link" href="{{ url_for('scrum.show_scrums') }}">Scrums</a></li>
+            <li><a class="nav-link" href="{{ url_for('workout.show_workouts') }}">Workouts</a></li>
+        </ul>
+        <div class="justify-right">
+            <ul id='navbar_buttons' class="navbar-nav">
+                {% block navbar %}
+                {% endblock %}
+            </ul>
+        </div>
+        <!-- <form class="form-inline" role="form" method="POST">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
+            <input type="hidden" name="submit-type" value="search">
+            <button class="btn btn-success" type="submit">Search</button>
+        </form> -->
+    </div>
+</nav>
+<!--Insert-->
+<br>
+<div class="container-fluid" style="max-width:1200px">
+{% block body %}
+{% endblock %}
+</div>
+<!--End-->
+</body>
+</html>
