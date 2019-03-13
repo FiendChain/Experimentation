@@ -11,6 +11,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--id', default=None, type=str, help='ID of the series from thetvdb database')
     parser.add_argument('--output', default=None, type=str, help='Directory to output tv show info')
+    parser.add_argument('--full', dest='enable_full_output', action='store_true')
     args = parser.parse_args()
 
     api = Api.load_api(credentials_file)
@@ -28,15 +29,22 @@ def main():
         if not series:
             print("No series with id '{}'".format(args.id))
             return
-
+    
     series_id = series.get('id', None)
     episodes = api.get_series_episodes(series_id)
+    
     filtered_episodes = filter_episode_list(episodes)
+    if not args.enable_full_output:
+        data = filtered_episodes
+    else:
+        data = {"filtered_episodes": filtered_episodes}
+        data.update(filter_series_info(series))
+
     if not args.output:
-        pp.pprint(filtered_episodes)
+        pp.pprint(data)
     else:
         with open(args.output, 'w') as file:
-            json.dump(filtered_episodes, file, indent=2, sort_keys=True)
+            json.dump(data, file)
             print('Json written to \'{}\''.format(args.output))
 
 

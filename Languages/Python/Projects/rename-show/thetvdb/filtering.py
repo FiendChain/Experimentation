@@ -45,4 +45,12 @@ def filter_episode_list(episode_list):
         filtered_list[season][episode_number] = episode_name
 
     return filtered_list
+
+def filter_series_info(series_info):
+    filtered_series_info = {}
+    filtered_series_info['id'] = series_info.get('id', None)
+    filtered_series_info['name'] = series_info.get('seriesName', None)
+    filtered_series_info['imdbID'] = series_info.get('imdbId', None)
+
+    return filtered_series_info
         

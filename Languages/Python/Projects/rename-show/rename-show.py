@@ -25,13 +25,16 @@ def main():
     if len(sys.argv) >= 2:
         default_title = re.sub(EPISODE_TITLE_RENAME, ".", sys.argv[1]) 
     parser = argparse.ArgumentParser()
-    parser.add_argument('title', default=None)
+    parser.add_argument('title', nargs='?', default='')
     parser.add_argument('--id', dest='id', type=str, default=None)
     parser.add_argument('--thetvdb', dest='enable_thetvdb', action='store_true')
     parser.add_argument('--fetch_title', dest='fetch_title', action='store_true')
 
     args = parser.parse_args()
     title = clean_title(args.title)
+
+
+    name_table = None
 
     if args.enable_thetvdb:
         api = thetvdb_api.Api.load_api(credentials_file)
@@ -44,8 +47,6 @@ def main():
             name_table = get_series_filtered_episodes(api, series.get('id', None))
             if args.fetch_title:
                 title = clean_title(series.get('seriesName')) 
-        else:
-            name_table = None
 
     if args.enable_thetvdb and not name_table:
         print("Couldn't fetch name table")
