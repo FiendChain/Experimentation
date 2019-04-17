@@ -4,8 +4,9 @@ import time
 import threading
 
 class SerialMonitor:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, reset=False, **kwargs):
         self.ser = serial.Serial(*args, **kwargs)
+        self.ser.setDTR(reset)
         self.is_running = True
         self.output_history = []
         self.read_thread = threading.Thread(target=self.read_output)
